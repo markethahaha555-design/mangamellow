@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MangaMellow เว็บอ่านการ์ตูนออนไลน์ที่คัดเรื่องสนุกไว้ให้คุณ" />
+  <title>MangaMellow — อ่านการ์ตูนออนไลน์</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="#top" class="brand"><span class="brand-mark">✦</span><span>Manga<span class="brand-accent">Mellow</span></span></a>
+      <nav class="nav-links" aria-label="เมนูหลัก">
+        <a class="active" href="#top">หน้าแรก</a>
+        <a href="#latest">อัปเดตล่าสุด</a>
+        <a href="#popular">ยอดนิยม</a>
+        <a href="#genres">หมวดหมู่</a>
+      </nav>
+      <div class="nav-actions">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="ค้นหาชื่อเรื่อง..." aria-label="ค้นหาการ์ตูน" /></label>
+        <button id="themeToggle" class="icon-button" aria-label="สลับโหมดสี">☾</button>
+        <button class="profile-button" aria-label="โปรไฟล์ผู้ใช้งาน">น</button>
+      </div>
+      <button id="mobileMenu" class="mobile-menu" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> เรื่องที่กำลังมาแรง</p>
+        <h1>เปิดหน้าถัดไป<br><em>ของการผจญภัย</em></h1>
+        <p class="hero-text">รวมการ์ตูนที่คุณตามหาไว้ในที่เดียว อ่านสนุก อ่านง่าย และอัปเดตทุกวัน</p>
+        <div class="hero-cta"><a class="primary-button" href="#popular">เริ่มอ่านเลย <span>→</span></a><a class="text-button" href="#latest">ดูทั้งหมด</a></div>
+        <div class="hero-stats"><div><strong>12K+</strong><span>เรื่องให้อ่าน</span></div><div><strong>86K+</strong><span>นักอ่าน</span></div><div><strong>ทุกวัน</strong><span>อัปเดตตอนใหม่</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="ปกการ์ตูนแนะนำ">
+        <div class="sun-glow"></div><div class="spark spark-one">✦</div><div class="spark spark-two">✦</div>
+        <div class="hero-card back-card"><img src="assets/manga-romance.png" alt="ภาพประกอบการ์ตูนโรแมนซ์" /></div>
+        <div class="hero-card main-card"><img src="assets/manga-fantasy.png" alt="ภาพปกเรื่อง The Last Ember" /><div class="hero-label">เรื่องแนะนำประจำสัปดาห์</div></div>
+        <div class="rating-bubble"><span>★</span><b>4.9</b><small>จากนักอ่าน</small></div>
+      </div>
+    </section>
+
+    <section id="popular" class="container section-block">
+      <div class="section-heading"><div><p class="eyebrow">คัดมาให้แล้ว</p><h2>เรื่องยอดนิยม <span>ประจำสัปดาห์</span></h2></div><a class="view-all" href="#latest">ดูทั้งหมด <b>→</b></a></div>
+      <div id="popularGrid" class="popular-grid"></div>
+    </section>
+
+    <section id="latest" class="latest-section">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">เพิ่งมาใหม่</p><h2>อัปเดตล่าสุด</h2></div><div id="genreFilters" class="filter-pills"></div></div>
+        <div id="latestGrid" class="latest-grid"></div>
+        <p id="emptyState" class="empty-state" hidden>ไม่พบเรื่องที่ค้นหา ลองใช้คำอื่นดูนะ</p>
+      </div>
+    </section>
+
+    <section id="genres" class="container genre-section"><div class="genre-banner"><div><p class="eyebrow">ค้นพบเรื่องใหม่</p><h2>อ่านในแบบที่เป็นคุณ</h2><p>เลือกหมวดที่ชอบ แล้วออกเดินทางไปกับเรื่องราวบทใหม่</p></div><div class="genre-orbit">✦<span>漫画</span>✧</div></div></section>
+  </main>
+
+  <footer><div class="container footer-inner"><a href="#top" class="brand"><span class="brand-mark">✦</span>Manga<span class="brand-accent">Mellow</span></a><p>พื้นที่เล็ก ๆ สำหรับคนรักการ์ตูนทุกคน</p><span>© 2026 MangaMellow</span></div></footer>
+  <div id="detailModal" class="modal" aria-hidden="true"><div class="modal-backdrop"></div><div class="modal-card"><button class="modal-close" aria-label="ปิด">×</button><img id="modalImage" src="" alt="" /><div class="modal-content"><p id="modalType" class="eyebrow"></p><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="modal-meta"><span id="modalRating"></span><span id="modalStatus"></span></div><button id="readButton" class="primary-button">อ่านตอนล่าสุด <span>→</span></button></div></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
